@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新年祝福</title>
+    <style>
+        body {
+            background-color: black;
+            overflow: hidden;
+            text-align: center;
+        }
+        .message {
+            display: none;
+            font-size: 2em;
+            color: white;
+            margin-top: 20px;
+        }
+        .gift {
+            display: none;
+            background-image: url('https://your-gift-image-url.png');
+            background-size: contain;
+            width: 200px;
+            height: 200px;
+            margin: 20px auto;
+            animation: gift-animation 1s ease-in-out;
+        }
+        @keyframes gift-animation {
+            0% { transform: scale(0); }
+            100% { transform: scale(1); }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.0.1/dist/index.bundle.js"></script>
+</head>
+<body>
+    <div id="fireworks"></div>
+    <div id="gift" class="gift"></div>
+    <div id="message" class="message">鸿勋机械&鸿诚模具祝大家新年快乐！</div>
+
+    <script>
+        // 初始化烟花
+        const fireworks = new Fireworks({
+            target: 'fireworks',
+            width: window.innerWidth,
+            height: window.innerHeight,
+            opacity: 0.6,
+            colors: ['#FF0044', '#00FF00', '#0000FF'],
+            sounds: true
+        });
+
+        fireworks.start();
+
+        // 显示礼物和祝福信息
+        setTimeout(() => {
+            document.getElementById('gift').style.display = 'block';
+        }, 3000);
+
+        setTimeout(() => {
+            document.getElementById('message').style.display = 'block';
+        }, 5000);
+    </script>
+</body>
+</html>
